@@ -10,16 +10,25 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var item: Item? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateViews() {
+        guard let item = item else { return }
+       
+        itemNameLabel.text = item.name
+        amountLabel.text = String(item.amount)
+        
+        if amountLabel.text == "0" {
+            restockLabel.alpha = 1
+        } else {
+            restockLabel.alpha = 0
+        }
     }
+    
     
     
     @IBOutlet weak var itemNameLabel: UILabel!

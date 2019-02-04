@@ -12,20 +12,32 @@ class ItemDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var item: Item? {
+        didSet {
+            updateViews()
+        }
     }
-    */
+    var itemController: ItemController?
+    
+    
+    func updateViews() {
+        
+        if let item = item, isViewLoaded {
+            itemNameTextField.text = item.name
+            amountTextField.text = String(item.amount)
+            unitTextField.text = item.unit
+            
+            navigationItem.title = itemNameTextField.text
+            
+        } else {
+            navigationItem.title = "Add a New Item"
+        }
+        
+    }
     
     @IBOutlet weak var itemNameTextField: UITextField!
     
@@ -37,6 +49,30 @@ class ItemDetailViewController: UIViewController {
     
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let name = itemNameTextField.text, let amount = amountTextField.text else { return }
+        
+        let number = Int.random(in: 0 ..< 10)
+        
+        if let item = item {
+            itemController?.update(withItem: item, andName: name, andAmount: Int(amount)!, completion: { (error) in
+                if let error = error {
+                    print(error)
+                }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+            
+        } else {
+            itemController?.createItem(withName: name, andAmount: Int(amount)!, andCategory: number, andId: (itemController!.items.count) + 1, completion: { (error) in
+                if let error = error {
+                    print(error)
+                }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
     
 }
