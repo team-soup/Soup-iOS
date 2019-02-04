@@ -13,13 +13,15 @@ struct User: Equatable, Codable {
     var name: String
     var email: String
     var password: String
-    let token: String
+    var role: String
+    let decodedToken: String
     
-    init(name: String, email: String, password: String, token: String = UUID().uuidString) {
+    init(name: String, email: String, password: String, role: String, decodedToken: String = UUID().uuidString) {
         self.name = name
         self.email = email
         self.password = password
-        self.token = token
+        self.role = role
+        self.decodedToken = decodedToken
     }
     
     

@@ -12,13 +12,18 @@ class ItemController {
     
     var items: [Item] = []
     
-    static var baseURL = URL(string: "http://localhost:8000/api/items")!
+    var user: User!
+    
+    let userController = UserController()
+    
+    static var baseURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")!
     
     func put(withItem item: Item, completion: @escaping (Error?) -> Void) {
         let url = ItemController.baseURL.appendingPathComponent(String(item.id))
         let urlJSON = url.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: urlJSON)
+        urlRequest.addValue(userController.token, forHTTPHeaderField: "Authorization")
         urlRequest.httpMethod = "PUT"
         
         do {
@@ -65,6 +70,7 @@ class ItemController {
         let urlJSON = url.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: urlJSON)
+        urlRequest.addValue(userController.token, forHTTPHeaderField: "Authorization")
         urlRequest.httpMethod = "DELETE"
         
         do {
@@ -99,7 +105,10 @@ class ItemController {
     func fetchItems(completion: @escaping (Error?) -> Void) {
         let url = ItemController.baseURL.appendingPathExtension("json")
         
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue(userController.token, forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {
                 completion(error)
                 return
