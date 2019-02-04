@@ -87,5 +87,45 @@ class ItemController {
     }
     
     
+    func update(withItem item: Item, andName name: String, andAmount amount: Int, completion: @escaping (Error?) -> Void) {
+        guard let index = items.index(of: item) else { return }
+        items[index].name = name
+        items[index].amount = amount
+        let updatedItem = items[index]
+        
+        put(withItem: updatedItem, completion: completion)
+    }
+    
+    func fetchItems(completion: @escaping (Error?) -> Void) {
+        let url = ItemController.baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let decodedDict = try jsonDecoder.decode([String: Item].self, from: data)
+                let items = Array(decodedDict.values)
+                self.items = items
+                completion(nil)
+            } catch {
+                print("Error decoding received data: \(error)")
+                completion(error)
+                return
+            }
+            
+            }.resume()
+        
+    }
+    
     
 }
