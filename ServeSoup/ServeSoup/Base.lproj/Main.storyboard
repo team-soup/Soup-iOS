@@ -174,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="1628" y="1065.5172413793105"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Inventory Collection View Controller-->
         <scene sceneID="Aha-86-m4c">
             <objects>
-                <collectionViewController id="IfG-10-Q1j" sceneMemberID="viewController">
+                <collectionViewController id="IfG-10-Q1j" customClass="InventoryCollectionViewController" customModule="ServeSoup" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3ui-kP-9kz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +189,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="8DO-B2-oHO">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="8DO-B2-oHO" customClass="ItemCollectionViewCell" customModule="ServeSoup" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="172" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -252,7 +252,7 @@
         <!--Kitchen Inventory-->
         <scene sceneID="Gy4-R0-cme">
             <objects>
-                <tableViewController id="7Oc-ze-aOj" customClass="InventoryTableViewController" customModule="ServeSoup" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="InventoryTableView" id="7Oc-ze-aOj" customClass="InventoryTableViewController" customModule="ServeSoup" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AXw-je-EXT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

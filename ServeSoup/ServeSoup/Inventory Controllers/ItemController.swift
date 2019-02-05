@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 class ItemController {
     
@@ -23,7 +24,7 @@ class ItemController {
         let urlJSON = url.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: urlJSON)
-        urlRequest.addValue(userController.finalToken, forHTTPHeaderField: "Authorization")
+        urlRequest.addValue(KeychainWrapper.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         urlRequest.httpMethod = "PUT"
         
         do {
@@ -70,7 +71,7 @@ class ItemController {
         let urlJSON = url.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: urlJSON)
-        urlRequest.addValue(userController.finalToken, forHTTPHeaderField: "Authorization")
+        urlRequest.addValue(KeychainWrapper.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         urlRequest.httpMethod = "DELETE"
         
         do {
@@ -103,7 +104,7 @@ class ItemController {
     }
     
     func fetchItems(completion: @escaping (Error?) -> Void) {
-        let url = ItemController.baseURL.appendingPathExtension("json")
+       /* let url = ItemController.baseURL.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: url)
         urlRequest.addValue(userController.finalToken, forHTTPHeaderField: "Authorization")
@@ -132,9 +133,10 @@ class ItemController {
                 return
             }
             
-            }.resume()
+            }.resume()*/
         
     }
     
+   
     
 }

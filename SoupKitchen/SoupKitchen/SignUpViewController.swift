@@ -15,7 +15,9 @@ class SignUpViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+   
     
+    @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var roleTextField: UITextField!
@@ -27,7 +29,7 @@ class SignUpViewController: UIViewController {
         print("Sign up button tapped")
         
         // Validate required fields are not empty
-        if (nameTextField.text?.isEmpty)! ||
+        if (nameTextField.text?.isEmpty)! || (firstNameTextField.text?.isEmpty)! ||
             (emailTextField.text?.isEmpty)! ||
             (roleTextField.text?.isEmpty)! ||
             (passwordTextField.text?.isEmpty)!
@@ -68,7 +70,8 @@ class SignUpViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let postString = ["name": nameTextField.text!,
+        let postString = ["firstname": firstNameTextField.text!,
+                          "lastname": nameTextField.text!,
                           "role": roleTextField.text!,
                           "email": emailTextField.text!,
                           "password": passwordTextField.text!,

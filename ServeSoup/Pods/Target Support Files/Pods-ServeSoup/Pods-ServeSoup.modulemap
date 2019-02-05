@@ -1,0 +1,6 @@
+framework module Pods_ServeSoup {
+  umbrella header "Pods-ServeSoup-umbrella.h"
+
+  export *
+  module * { export * }
+}
