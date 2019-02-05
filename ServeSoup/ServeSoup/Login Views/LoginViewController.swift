@@ -16,7 +16,9 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    var userController: UserController?
+    var user: User?
+    
     /*
     // MARK: - Navigation
 
@@ -26,5 +28,28 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        
+        if let user = user {
+            userController?.login(withEmail: email, andPassword: password, andUser: user, completion: { (error) in
+                if let error = error {
+                    print(error)
+                }
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "LoginHome", sender: self)
+                }
+            })
+            
+        }
+    }
+    
+    
 
 }

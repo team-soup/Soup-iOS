@@ -74,7 +74,7 @@
                                         <rect key="frame" x="0.0" y="100" width="175" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <segue destination="7Oc-ze-aOj" kind="show" identifier="LoginHome" id="kgo-Ge-qw8"/>
+                                            <action selector="loginButtonTapped:" destination="3PY-QC-peL" eventType="touchUpInside" id="9Cr-mZ-Qk4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -90,6 +90,11 @@
                         <viewLayoutGuide key="safeArea" id="lhW-Jh-mKt"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="eDh-zL-XCD"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="GWb-Ef-yl0" id="rY9-0e-0fa"/>
+                        <outlet property="passwordTextField" destination="Agt-sC-k0f" id="F3E-h7-SPH"/>
+                        <segue destination="7Oc-ze-aOj" kind="show" identifier="LoginHome" id="4Ge-p5-i9v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0s-sE-Gd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +145,7 @@
                                         <rect key="frame" x="0.0" y="250" width="359" height="30"/>
                                         <state key="normal" title="Create Account"/>
                                         <connections>
-                                            <segue destination="7Oc-ze-aOj" kind="show" id="P5L-ud-lLc"/>
+                                            <action selector="createAccountTapped:" destination="ykb-Ta-mRB" eventType="touchUpInside" id="JY9-dz-kke"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -155,6 +160,14 @@
                         <viewLayoutGuide key="safeArea" id="yh9-SG-4ag"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="hBV-kn-RSl"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="thX-tR-4sH" id="I6n-s5-Ut1"/>
+                        <outlet property="emailTextField" destination="GXi-5U-Awv" id="bA0-Rw-oMX"/>
+                        <outlet property="nameTextField" destination="AOu-C3-N6V" id="2wo-jr-NeH"/>
+                        <outlet property="passwordTextField" destination="5aT-LJ-hbj" id="7Hs-1a-g6R"/>
+                        <outlet property="roleTextField" destination="ubl-Ya-mNy" id="LDR-NG-3wz"/>
+                        <segue destination="7Oc-ze-aOj" kind="show" identifier="RegisterHome" id="Afa-9Y-04A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esK-c3-BPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -431,6 +444,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="bHM-CO-pnA"/>
-        <segue reference="kgo-Ge-qw8"/>
+        <segue reference="Afa-9Y-04A"/>
     </inferredMetricsTieBreakers>
 </document>
