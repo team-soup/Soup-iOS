@@ -1,8 +1,8 @@
 //
 //  LoginViewController.swift
-//  ServeSoup
+//  SoupKitchen
 //
-//  Created by Jocelyn Stuart on 2/4/19.
+//  Created by Jocelyn Stuart on 2/5/19.
 //  Copyright © 2019 JS. All rights reserved.
 //
 
@@ -16,9 +16,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    var userController: UserController?
-    var user: User?
-    
+
     /*
     // MARK: - Navigation
 
@@ -34,20 +32,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
-        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-        
-    
-        userController?.loginUser(withEmail: email, andPassword: password, completion: { (error) in
-            if let error = error {
-                print(error)
-            }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "LoginHome", sender: self)
-            }
-        })
-            
-        
+    @IBAction func loginTapped(_ sender: UIButton) {
     }
     
     

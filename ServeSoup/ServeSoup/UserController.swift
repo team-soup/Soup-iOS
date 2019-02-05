@@ -11,7 +11,7 @@ import Foundation
 class UserController {
     
     var users: [User] = []
-    var token: String = ""
+    var finalToken: String = ""
     static var baseURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/staff/register")!
     static var loginURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/staff/login")!
     
@@ -38,7 +38,6 @@ class UserController {
                 return
             }
             self.users.append(user)
-            self.token = user.decodedToken
             completion(nil)
             }.resume()
         
@@ -46,14 +45,17 @@ class UserController {
     
     func createUser(withName name: String, andEmail email: String, andPassword password: String, andRole role: String, completion: @escaping (Error?) -> Void) {
         let user = User(name: name, email: email, password: password, role: role)
+        print("User created")
         register(withUser: user, completion: completion)
     }
     
     func loginUser(withEmail email: String, andPassword password: String, completion: @escaping (Error?) -> Void) {
-      //  let user = User(email: email, password: password)
+        let user = User(name: nil, email: email, password: password, role: nil)
+        login(withUser: user, completion: completion)
+        
     }
     
-    func login(withEmail email: String, andPassword password: String, andUser user: User, completion: @escaping (Error?) -> Void) {
+    func login(withUser user: User, completion: @escaping (Error?) -> Void) {
         
         let urlJSON = UserController.loginURL.appendingPathExtension("json")
         
@@ -75,7 +77,6 @@ class UserController {
                 completion(error)
                 return
             }
-            self.token = user.decodedToken
             completion(nil)
             }.resume()
         

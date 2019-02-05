@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  ServeSoup
+//  SoupKitchen
 //
-//  Created by Jocelyn Stuart on 2/4/19.
+//  Created by Jocelyn Stuart on 2/5/19.
 //  Copyright © 2019 JS. All rights reserved.
 //
 
@@ -14,12 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    let userController = UserController()
 
 
-    @IBAction func signUpTapped(_ sender: UIButton) {
-        print(userController.users)
-    }
 }
 

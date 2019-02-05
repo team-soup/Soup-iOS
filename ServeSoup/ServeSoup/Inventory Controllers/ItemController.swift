@@ -23,7 +23,7 @@ class ItemController {
         let urlJSON = url.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: urlJSON)
-        urlRequest.addValue(userController.token, forHTTPHeaderField: "Authorization")
+        urlRequest.addValue(userController.finalToken, forHTTPHeaderField: "Authorization")
         urlRequest.httpMethod = "PUT"
         
         do {
@@ -70,7 +70,7 @@ class ItemController {
         let urlJSON = url.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: urlJSON)
-        urlRequest.addValue(userController.token, forHTTPHeaderField: "Authorization")
+        urlRequest.addValue(userController.finalToken, forHTTPHeaderField: "Authorization")
         urlRequest.httpMethod = "DELETE"
         
         do {
@@ -106,7 +106,7 @@ class ItemController {
         let url = ItemController.baseURL.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: url)
-        urlRequest.addValue(userController.token, forHTTPHeaderField: "Authorization")
+        urlRequest.addValue(userController.finalToken, forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {

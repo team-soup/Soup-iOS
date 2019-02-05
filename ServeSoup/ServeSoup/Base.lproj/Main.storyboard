@@ -31,6 +31,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
+                                    <action selector="signUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="19q-JV-PoB"/>
                                     <segue destination="ykb-Ta-mRB" kind="show" id="5uW-XP-Buo"/>
                                 </connections>
                             </button>
@@ -426,7 +427,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ovI-TD-D60">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dF0-Tl-dXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OOD-TZ-foq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xGb-PW-fwf">
@@ -438,6 +438,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LNj-fX-fbm"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dF0-Tl-dXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="232.80000000000001" y="792.95352323838085"/>
         </scene>

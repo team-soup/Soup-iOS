@@ -1,8 +1,8 @@
 //
 //  SignUpViewController.swift
-//  ServeSoup
+//  SoupKitchen
 //
-//  Created by Jocelyn Stuart on 2/4/19.
+//  Created by Jocelyn Stuart on 2/5/19.
 //  Copyright © 2019 JS. All rights reserved.
 //
 
@@ -16,34 +16,14 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    var userController: UserController?
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    var finalToken: String = ""
-    
-    
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var roleTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     
     
-    
-    @IBAction func createAccountTapped(_ sender: UIButton) {
+    @IBAction func createTapped(_ sender: UIButton) {
         print("Sign up button tapped")
         
         // Validate required fields are not empty
@@ -82,6 +62,7 @@ class SignUpViewController: UIViewController {
         
         // Send HTTP Request to Register user
         let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/staff/register")
+       // let urlJSON = myUrl!.appendingPathExtension("json")
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
         request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -129,10 +110,7 @@ class SignUpViewController: UIViewController {
                         self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
                         return
                     } else {
-                        self.displayMessage(userMessage: "Successfully Registered a New Account!")
-                        self.userController?.finalToken = token!
-                        self.performSegue(withIdentifier: "LoginHome", sender: self)
-                        
+                        self.displayMessage(userMessage: "Successfully Registered a New Account. Please proceed to Sign in")
                     }
                     
                 } else {
@@ -182,5 +160,15 @@ class SignUpViewController: UIViewController {
                 self.present(alertController, animated: true, completion:nil)
         }
     }
+        
+        
+    }
     
-}
+    
+    
+    
+    
+    
+    
+    
+
