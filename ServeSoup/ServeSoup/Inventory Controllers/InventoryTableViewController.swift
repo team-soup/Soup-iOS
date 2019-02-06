@@ -20,6 +20,9 @@ class InventoryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadMemberProfile()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
        /* itemController.fetchItems { (error) in
             if let error = error {
                 print(error)
@@ -109,15 +112,23 @@ class InventoryTableViewController: UITableViewController {
                 print("error=\(String(describing: error))")
                 return
             }
-            
+            guard let data = data else {
+                NSLog("error")
+                return
+            }
             do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+               // let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                let json = try JSONDecoder().decode(UpperLevel.self, from: data)
                 
-                if let parseJSON = json {
+                self.itemController.items = json.items
+                
+               /* if let parseJSON = json {
                     
                     DispatchQueue.main.async
                         {
-                            self.itemController.items = (parseJSON["items"] as? Array)!
+                           // self.itemController.items = [(parseJSON["items"] as? Item)!]
+                            self.itemController.items = parseJSON["items"] as! [Item]
+                            self.itemController.items = json.items
                           /*  let firstName: String?  = parseJSON["firstName"] as? String
                             let lastName: String? = parseJSON["lastName"] as? String
                             
@@ -128,7 +139,7 @@ class InventoryTableViewController: UITableViewController {
                 } else {
                     //Display an Alert dialog with a friendly error message
                     self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-                }
+                }*/
                 
             } catch {
                 // Display an Alert dialog with a friendly error message

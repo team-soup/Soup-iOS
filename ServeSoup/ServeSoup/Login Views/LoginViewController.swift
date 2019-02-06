@@ -129,9 +129,10 @@ class LoginViewController: UIViewController {
                     
                     DispatchQueue.main.async
                         {
-                            let homePage = self.storyboard?.instantiateViewController(withIdentifier: "InventoryTableView") as! InventoryTableViewController
+                          /*  let homePage = self.storyboard?.instantiateViewController(withIdentifier: "InventoryTableView") as! InventoryTableViewController
                             let appDelegate = UIApplication.shared.delegate
-                            appDelegate?.window??.rootViewController = homePage
+                            appDelegate?.window??.rootViewController = homePage */
+                            self.performSegue(withIdentifier: "LoginHome", sender: self)
                     }
                     
                     
