@@ -25,11 +25,13 @@ class ItemController {
         let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
         var request = URLRequest(url: myUrl!)
         request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
         
         do {
             let encoder = JSONEncoder()
-            request.httpBody = try encoder.encode([item])
+            request.httpBody = try encoder.encode(item)
         } catch {
             print(error)
             completion(error)
@@ -48,6 +50,42 @@ class ItemController {
             completion(nil)
             }.resume()
         
+        
+        
+        
+    /*    func createPostsWith(postName: String, imageUrl: String?, description: String?, completion: @escaping(Error?) -> Void){
+            
+            let baseURL = URL(string: "https://backend-art.herokuapp.com/api/posts")!
+            
+            let params = ["postName" : postName, "imageUrl": imageUrl, "description" : description]
+            
+            guard let body = try? JSONEncoder().encode(params) else { return }
+            var request = URLRequest(url: baseURL)
+            
+            let userDefaults = UserDefaults.standard
+            
+            let authToken = userDefaults.value(forKeyPath: "token") as? String
+            
+            request.httpMethod = HTTPHelper.post.rawValue
+            request.httpBody = body
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.setValue(authToken, forHTTPHeaderField: "authorization")
+            
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error with the requst: \(error)")
+                    completion(error)
+                }
+                
+                if let response = response {
+                    print("Response from request: \(response)")
+                    completion(nil)
+                }
+                
+                }.resume()
+        }*/
+        
+        
     }
     
     func post(withItem item: Item, completion: @escaping (Error?) -> Void) {
@@ -56,12 +94,14 @@ class ItemController {
         let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
         var request = URLRequest(url: myUrl!)
         request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
         
         
         do {
             let encoder = JSONEncoder()
-            request.httpBody = try encoder.encode([item])
+            request.httpBody = try encoder.encode(item)
         } catch {
             print(error)
             completion(error)
@@ -87,7 +127,8 @@ class ItemController {
     }
     
     func createItem(withName name: String, andAmount amount: Int, andCategory categoryId: Int, completion: @escaping (Error?) -> Void) {
-        let item = Item(categoryID: categoryId, name: name, amount: amount)
+        let item = Item(categoryID: categoryId, name: name, amount: amount, unit: "undefined")
+        print(item)
         post(withItem: item, completion: completion)
         
     }

@@ -10,19 +10,19 @@ import Foundation
 
 struct Item: Equatable, Codable {
     var categoryID: Int
-    var id: Int
+   // var id: Int
     var name: String
     var amount: Int
     var unit: String
     var imageURL: URL?
     
     
-    init(categoryID: Int, id: Int = 1, name: String, amount: Int, unit: String = "") {
+    init(categoryID: Int, name: String, amount: Int, unit: String = "") {
         self.name = name
         self.amount = amount
         self.unit = unit
         self.categoryID = categoryID
-        self.id = id
+       // self.id = id
         self.imageURL = URL(string: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiA9PSk1qXgAhUT2VQKHcExDbAQjRx6BAgBEAU&url=https%3A%2F%2Ficons8.com%2F&psig=AOvVaw16fTVvDjRmJxkJIR7H9CKJ&ust=1549493242246052")
     }
     

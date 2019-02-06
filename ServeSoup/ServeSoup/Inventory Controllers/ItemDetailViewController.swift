@@ -64,6 +64,7 @@ class ItemDetailViewController: UIViewController {
             })
             
         } else {
+            print(name, amount)
             itemController?.createItem(withName: name, andAmount: Int(amount)!, andCategory: number, completion: { (error) in
                 if let error = error {
                     print(error)
