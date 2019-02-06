@@ -105,23 +105,31 @@ class ItemController {
     }
     
     func deleteFromServer(item: Item, completion: @escaping (Error?) -> Void) {
-        let url = ItemController.baseURL.appendingPathComponent(String(item.id))
+       /* let url = ItemController.baseURL.appendingPathComponent(String(item.id))
         let urlJSON = url.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: urlJSON)
         urlRequest.addValue(KeychainWrapper.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
-        urlRequest.httpMethod = "DELETE"
+        urlRequest.httpMethod = "DELETE"*/
+        
+        let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
+        print(accessToken)
+        let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
+        var request = URLRequest(url: myUrl!)
+        request.httpMethod = "DELETE"
+        request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
+        
         
         do {
             let encoder = JSONEncoder()
-            urlRequest.httpBody = try encoder.encode(item)
+            request.httpBody = try encoder.encode(item)
         } catch {
             print(error)
             completion(error)
             return
         }
         
-        URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+        URLSession.shared.dataTask(with: request) { (_, _, error) in
             if let error = error {
                 print(error)
                 completion(error)

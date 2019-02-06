@@ -15,6 +15,7 @@ class InventoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +32,19 @@ class InventoryTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }*/
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        
+        // 4
+        let image = UIImage(named: "fakeIcon")
+        imageView.image = image
+        
+        // 5
+        navigationItem.titleView = imageView
     }
 
 
@@ -96,13 +110,13 @@ class InventoryTableViewController: UITableViewController {
     
     func loadMemberProfile() {
         let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
-      //  let userId: String? = KeychainWrapper.standard.string(forKey: "userId")
+    
         print(accessToken)
         let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
         var request = URLRequest(url: myUrl!)
         request.httpMethod = "GET"// Compose a query string
         request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
-       // print(request) //Bearer
+       
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             
