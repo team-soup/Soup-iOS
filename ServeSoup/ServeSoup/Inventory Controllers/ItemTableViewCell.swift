@@ -20,7 +20,7 @@ class ItemTableViewCell: UITableViewCell {
         guard let item = item else { return }
        
         itemNameLabel.text = item.name
-        amountLabel.text = String(item.amount)
+        amountLabel.text = "Amount: \(item.amount)"
         
         if amountLabel.text == "0" {
             restockLabel.alpha = 1

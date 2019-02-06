@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5CBE2B96CD577A53C2754248 /* Pods_ServeSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F88D42155C86E55F29C84A /* Pods_ServeSoup.framework */; };
+		BB19948A220A6EA20038BAD8 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB199488220A6EA20038BAD8 /* ItemCollectionViewCell.swift */; };
+		BB19948B220A6EA20038BAD8 /* InventoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB199489220A6EA20038BAD8 /* InventoryCollectionViewController.swift */; };
 		BBB2F1A12208957B00C5EDC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1A02208957B00C5EDC0 /* AppDelegate.swift */; };
 		BBB2F1A32208957B00C5EDC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1A22208957B00C5EDC0 /* ViewController.swift */; };
 		BBB2F1A62208957B00C5EDC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB2F1A42208957B00C5EDC0 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		0F9DB9C4491CFFAE0AEE91E8 /* Pods-ServeSoup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServeSoup.release.xcconfig"; path = "Pods/Target Support Files/Pods-ServeSoup/Pods-ServeSoup.release.xcconfig"; sourceTree = "<group>"; };
 		9FCC24380870B056083DEB04 /* Pods-ServeSoup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServeSoup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ServeSoup/Pods-ServeSoup.debug.xcconfig"; sourceTree = "<group>"; };
+		BB199488220A6EA20038BAD8 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB199489220A6EA20038BAD8 /* InventoryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewController.swift; sourceTree = "<group>"; };
 		BBB2F19D2208957B00C5EDC0 /* ServeSoup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServeSoup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB2F1A02208957B00C5EDC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBB2F1A22208957B00C5EDC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				BBB2F1A02208957B00C5EDC0 /* AppDelegate.swift */,
 				BBB2F1C22208CBDF00C5EDC0 /* User.swift */,
 				BBB2F1C42208D0B700C5EDC0 /* UserController.swift */,
+				BB199489220A6EA20038BAD8 /* InventoryCollectionViewController.swift */,
+				BB199488220A6EA20038BAD8 /* ItemCollectionViewCell.swift */,
 				BBB2F1A42208957B00C5EDC0 /* Main.storyboard */,
 				BBB2F1A72208957C00C5EDC0 /* Assets.xcassets */,
 				BBB2F1A92208957C00C5EDC0 /* LaunchScreen.storyboard */,
@@ -258,8 +264,10 @@
 				BBB2F1B82208A8F300C5EDC0 /* InventoryTableViewController.swift in Sources */,
 				BBB2F1A32208957B00C5EDC0 /* ViewController.swift in Sources */,
 				BBB2F1BE2208AB9E00C5EDC0 /* Item.swift in Sources */,
+				BB19948B220A6EA20038BAD8 /* InventoryCollectionViewController.swift in Sources */,
 				BBB2F1B62208A89600C5EDC0 /* SignUpViewController.swift in Sources */,
 				BBB2F1BA2208A91300C5EDC0 /* ItemTableViewCell.swift in Sources */,
+				BB19948A220A6EA20038BAD8 /* ItemCollectionViewCell.swift in Sources */,
 				BBB2F1C32208CBDF00C5EDC0 /* User.swift in Sources */,
 				BBB2F1A12208957B00C5EDC0 /* AppDelegate.swift in Sources */,
 			);

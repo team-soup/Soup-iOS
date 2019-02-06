@@ -71,7 +71,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvl-hz-wum">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvl-hz-wum">
                                         <rect key="frame" x="0.0" y="100" width="175" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
@@ -95,6 +95,7 @@
                         <outlet property="emailTextField" destination="GWb-Ef-yl0" id="rY9-0e-0fa"/>
                         <outlet property="passwordTextField" destination="Agt-sC-k0f" id="F3E-h7-SPH"/>
                         <segue destination="7Oc-ze-aOj" kind="show" identifier="LoginHome" id="4Ge-p5-i9v"/>
+                        <segue destination="IfG-10-Q1j" kind="show" identifier="LogintoCollection" id="FMr-wN-csC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0s-sE-Gd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,7 +149,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdW-9O-T19">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdW-9O-T19">
                                         <rect key="frame" x="0.0" y="294" width="359" height="30"/>
                                         <state key="normal" title="Create Account"/>
                                         <connections>
@@ -182,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="1628" y="1065.5172413793105"/>
         </scene>
-        <!--Inventory Collection View Controller-->
+        <!--Kitchen Inventory-->
         <scene sceneID="Aha-86-m4c">
             <objects>
                 <collectionViewController id="IfG-10-Q1j" customClass="InventoryCollectionViewController" customModule="ServeSoup" customModuleProvider="target" sceneMemberID="viewController">
@@ -197,54 +198,50 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="8DO-B2-oHO" customClass="ItemCollectionViewCell" customModule="ServeSoup" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="ItemCell" id="8DO-B2-oHO" customClass="ItemCollectionViewCell" customModule="ServeSoup" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="172" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="172" height="189"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzy-on-edJ">
-                                            <rect key="frame" x="8" y="135.5" width="156" height="21.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="748" text="Restock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QS-eN-jHd">
+                                            <rect key="frame" x="59" y="40" width="55.5" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="247" horizontalCompressionResistancePriority="753" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzy-on-edJ">
+                                            <rect key="frame" x="8" y="83" width="156" height="21.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msm-Nr-PVe">
-                                            <rect key="frame" x="0.0" y="161" width="172" height="21"/>
+                                            <rect key="frame" x="8" y="119.5" width="156" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QS-eN-jHd">
-                                            <rect key="frame" x="0.0" y="0.0" width="172" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJU-lL-9fS">
-                                            <rect key="frame" x="33" y="20" width="107.5" height="107.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="aJU-lL-9fS" secondAttribute="height" multiplier="1:1" id="ge0-xD-c3r"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="Kzy-on-edJ" firstAttribute="top" secondItem="aJU-lL-9fS" secondAttribute="bottom" constant="8" id="Co8-tq-orn"/>
-                                    <constraint firstAttribute="bottom" secondItem="msm-Nr-PVe" secondAttribute="bottom" constant="7" id="Gx7-XU-QYV"/>
-                                    <constraint firstItem="Kzy-on-edJ" firstAttribute="leading" secondItem="8DO-B2-oHO" secondAttribute="leadingMargin" id="Ps5-9A-fZL"/>
-                                    <constraint firstItem="msm-Nr-PVe" firstAttribute="leading" secondItem="8DO-B2-oHO" secondAttribute="leading" id="QLf-6l-8Bc"/>
-                                    <constraint firstItem="aJU-lL-9fS" firstAttribute="leading" secondItem="8DO-B2-oHO" secondAttribute="leadingMargin" constant="25" id="SQO-xI-kWV"/>
-                                    <constraint firstItem="4QS-eN-jHd" firstAttribute="leading" secondItem="8DO-B2-oHO" secondAttribute="leading" id="UbL-Is-ZdF"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="aJU-lL-9fS" secondAttribute="trailing" constant="23.5" id="g0Q-6p-6Z4"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Kzy-on-edJ" secondAttribute="trailing" id="iaT-3k-urt"/>
-                                    <constraint firstAttribute="trailing" secondItem="4QS-eN-jHd" secondAttribute="trailing" id="j05-Yr-seg"/>
-                                    <constraint firstAttribute="trailing" secondItem="msm-Nr-PVe" secondAttribute="trailing" id="pAW-vr-ajy"/>
-                                    <constraint firstItem="aJU-lL-9fS" firstAttribute="top" secondItem="4QS-eN-jHd" secondAttribute="bottom" constant="2" id="t7M-FC-55J"/>
-                                    <constraint firstItem="msm-Nr-PVe" firstAttribute="top" secondItem="Kzy-on-edJ" secondAttribute="bottom" constant="4" id="vke-DB-R9x"/>
-                                    <constraint firstItem="4QS-eN-jHd" firstAttribute="top" secondItem="8DO-B2-oHO" secondAttribute="top" id="zG8-Jj-obn"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="msm-Nr-PVe" secondAttribute="bottom" constant="41" id="65z-vf-ZEY"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Kzy-on-edJ" secondAttribute="trailing" id="CKX-Jm-feQ"/>
+                                    <constraint firstItem="Kzy-on-edJ" firstAttribute="top" secondItem="4QS-eN-jHd" secondAttribute="bottom" constant="25" id="QTv-Ha-giX"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="4QS-eN-jHd" secondAttribute="trailing" constant="49.5" id="Wli-30-RbP"/>
+                                    <constraint firstItem="Kzy-on-edJ" firstAttribute="leading" secondItem="8DO-B2-oHO" secondAttribute="leadingMargin" id="Y1x-0b-CSg"/>
+                                    <constraint firstItem="4QS-eN-jHd" firstAttribute="top" secondItem="8DO-B2-oHO" secondAttribute="topMargin" constant="12" id="gCf-MT-o0Q"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="msm-Nr-PVe" secondAttribute="trailing" id="jqO-f5-6aZ"/>
+                                    <constraint firstItem="msm-Nr-PVe" firstAttribute="top" secondItem="Kzy-on-edJ" secondAttribute="bottom" constant="15" id="n2p-eN-o8s"/>
+                                    <constraint firstItem="msm-Nr-PVe" firstAttribute="leading" secondItem="8DO-B2-oHO" secondAttribute="leadingMargin" id="nbl-Ku-0wn"/>
+                                    <constraint firstItem="4QS-eN-jHd" firstAttribute="leading" secondItem="8DO-B2-oHO" secondAttribute="leadingMargin" constant="51" id="yzx-DA-1H2"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="amountLabel" destination="msm-Nr-PVe" id="8Bd-za-Jvx"/>
+                                    <outlet property="itemNameLabel" destination="Kzy-on-edJ" id="Gnh-d2-zJS"/>
+                                    <outlet property="restockLabel" destination="4QS-eN-jHd" id="c4U-6L-Fmu"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -252,10 +249,15 @@
                             <outlet property="delegate" destination="IfG-10-Q1j" id="lgV-vM-HZS"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Kitchen Inventory" id="3Ft-xz-M0z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f6C-q2-yt8"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yd2-XM-1J4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2367.1999999999998" y="1378.56071964018"/>
+            <point key="canvasLocation" x="2320.8000000000002" y="1486.5067466266867"/>
         </scene>
         <!--Kitchen Inventory-->
         <scene sceneID="Gy4-R0-cme">
@@ -294,7 +296,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Restock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZz-td-9lP">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="Restock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZz-td-9lP">
                                                     <rect key="frame" x="200" y="0.0" width="52" height="49.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>

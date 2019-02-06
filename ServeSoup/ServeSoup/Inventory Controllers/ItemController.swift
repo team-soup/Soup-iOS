@@ -88,7 +88,7 @@ class ItemController {
     
     func createItem(withName name: String, andAmount amount: Int, andCategory categoryId: Int, completion: @escaping (Error?) -> Void) {
         let item = Item(categoryID: categoryId, name: name, amount: amount)
-        put(withItem: item, completion: completion)
+        post(withItem: item, completion: completion)
         
     }
     

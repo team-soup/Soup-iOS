@@ -19,8 +19,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
     func updateViews() {
         guard let item = item else { return }
         
+       // let image = UIImage(
+        
         itemNameLabel.text = item.name
-        amountLabel.text = String(item.amount)
+        amountLabel.text = "Amount: \(item.amount)"
+       // itemImageView.image  = item.imageURL
         
         if amountLabel.text == "0" {
             restockLabel.alpha = 1
@@ -30,6 +33,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     
+    @IBOutlet weak var itemImageView: UIImageView!
     
     @IBOutlet weak var itemNameLabel: UILabel!
     

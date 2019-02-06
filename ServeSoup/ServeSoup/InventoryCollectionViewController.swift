@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 
 
@@ -17,32 +18,34 @@ class InventoryCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+      //  self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ItemCell")
 
-        // Do any additional setup after loading the view.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadMemberProfile()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ItemDetail" {
+            guard let cellDetailController = segue.destination as? ItemDetailViewController, let cell = sender as? ItemCollectionViewCell else { return }
+            
+            cellDetailController.itemController = itemController
+            cellDetailController.item = cell.item
+            
+        } else if segue.identifier == "AddItem" {
+            guard let addItemController = segue.destination as? ItemDetailViewController else { return }
+            
+            addItemController.itemController = itemController
+            
+        }
     }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-  /*  override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    } */
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -58,35 +61,84 @@ class InventoryCollectionViewController: UICollectionViewController {
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
+   
 
     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
+        
+        let item = itemController.items[indexPath.row]
+        itemController.delete(item: item) { (error) in
+            if let error = error {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                collectionView.reloadData()
+            }
+        }
     }
-    */
-
+ 
+   
+    
+    
+    
+    func loadMemberProfile() {
+        let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
+        //  let userId: String? = KeychainWrapper.standard.string(forKey: "userId")
+        print(accessToken)
+        let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
+        var request = URLRequest(url: myUrl!)
+        request.httpMethod = "GET"// Compose a query string
+        request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
+        // print(request) //Bearer
+        
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
+                print("error=\(String(describing: error))")
+                return
+            }
+            guard let data = data else {
+                NSLog("error")
+                return
+            }
+            do {
+                // let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                let json = try JSONDecoder().decode(UpperLevel.self, from: data)
+                
+                self.itemController.items = json.items
+                
+                
+            } catch {
+                // Display an Alert dialog with a friendly error message
+                self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
+                print(error)
+            }
+            
+        }
+        task.resume()
+        
+        
+    }
+    
+    func displayMessage(userMessage:String) -> Void {
+        DispatchQueue.main.async
+            {
+                let alertController = UIAlertController(title: "Alert", message: userMessage, preferredStyle: .alert)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    // Code in this block will trigger when OK button tapped.
+                    print("Ok button tapped")
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion:nil)
+        }
+    }
+    
+    
+    
+    
+    
 }
+
+
