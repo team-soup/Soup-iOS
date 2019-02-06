@@ -22,8 +22,9 @@ class ItemTableViewCell: UITableViewCell {
         itemNameLabel.text = item.name
         amountLabel.text = "Amount: \(item.amount)"
         
-        if amountLabel.text == "0" {
+        if amountLabel.text == "Amount: 0" {
             restockLabel.alpha = 1
+            restockLabel.textColor = .red
         } else {
             restockLabel.alpha = 0
         }
