@@ -33,6 +33,7 @@ class ItemDetailViewController: UIViewController {
             
             navigationItem.title = itemNameTextField.text
             
+            
         } else {
             navigationItem.title = "Add a New Item"
         }
@@ -65,7 +66,7 @@ class ItemDetailViewController: UIViewController {
             
         } else {
             print(name, amount)
-            itemController?.createItem(withName: name, andAmount: Int(amount)!, andCategory: number, completion: { (error) in
+            itemController?.createItem(withName: name, andAmount: Int(amount)!, andCategory: number, andUnit: unitTextField.text, completion: { (error) in
                 if let error = error {
                     print(error)
                 }

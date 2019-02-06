@@ -22,9 +22,12 @@ class ItemController {
     func put(withItem item: Item, completion: @escaping (Error?) -> Void) {
         let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
         print(accessToken)
-        let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
-        var request = URLRequest(url: myUrl!)
+       // let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")!
+        let newUrl = ItemController.baseURL.appendingPathComponent("\(String(describing: item.id))")
+        
+        var request = URLRequest(url: newUrl)
         request.httpMethod = "PUT"
+        
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
@@ -126,8 +129,8 @@ class ItemController {
         
     }
     
-    func createItem(withName name: String, andAmount amount: Int, andCategory categoryId: Int, completion: @escaping (Error?) -> Void) {
-        let item = Item(categoryID: categoryId, name: name, amount: amount, unit: "undefined")
+    func createItem(withName name: String, andAmount amount: Int, andCategory categoryId: Int, andUnit unit: String?, completion: @escaping (Error?) -> Void) {
+        let item = Item(categoryID: categoryId, name: name, amount: amount, unit: unit ?? "undefined")
         print(item)
         post(withItem: item, completion: completion)
         
@@ -152,13 +155,15 @@ class ItemController {
         var urlRequest = URLRequest(url: urlJSON)
         urlRequest.addValue(KeychainWrapper.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         urlRequest.httpMethod = "DELETE"*/
-        
+        //  guard let itemId = item.id else { return }
         let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
         print(accessToken)
-        let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
-        var request = URLRequest(url: myUrl!)
+        let url = ItemController.baseURL.appendingPathComponent(String(item.id))
+        var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
-        request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(accessToken, forHTTPHeaderField: "Authorization")
         
         
         do {
@@ -186,6 +191,7 @@ class ItemController {
         items[index].name = name
         items[index].amount = amount
         let updatedItem = items[index]
+        print(updatedItem)
         
         put(withItem: updatedItem, completion: completion)
     }

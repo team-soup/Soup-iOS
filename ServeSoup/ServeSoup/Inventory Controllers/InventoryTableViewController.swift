@@ -24,14 +24,7 @@ class InventoryTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-       /* itemController.fetchItems { (error) in
-            if let error = error {
-                print(error)
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }*/
+      
     }
     
     override func viewDidAppear(_ animated: Bool) {
