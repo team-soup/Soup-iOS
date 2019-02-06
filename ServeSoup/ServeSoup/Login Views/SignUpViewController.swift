@@ -32,6 +32,7 @@ class SignUpViewController: UIViewController {
     var finalToken: String = ""
     
     
+    @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -48,7 +49,7 @@ class SignUpViewController: UIViewController {
         print("Sign up button tapped")
         
         // Validate required fields are not empty
-        if (nameTextField.text?.isEmpty)! ||
+        if (nameTextField.text?.isEmpty)! || (firstNameTextField.text?.isEmpty)! ||
             (emailTextField.text?.isEmpty)! ||
             (roleTextField.text?.isEmpty)! ||
             (passwordTextField.text?.isEmpty)!
@@ -83,12 +84,14 @@ class SignUpViewController: UIViewController {
         
         // Send HTTP Request to Register user
         let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/staff/register")
+        // let urlJSON = myUrl!.appendingPathExtension("json")
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let postString = ["name": nameTextField.text!,
+        let postString = ["firstname": firstNameTextField.text!,
+                          "lastname": nameTextField.text!,
                           "role": roleTextField.text!,
                           "email": emailTextField.text!,
                           "password": passwordTextField.text!,
@@ -130,17 +133,7 @@ class SignUpViewController: UIViewController {
                         self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
                         return
                     } else {
-                        self.displayMessage(userMessage: "Successfully Registered a New Account!")
-                        self.userController?.finalToken = token!
-                        DispatchQueue.main.async
-                            {
-                                let homePage = self.storyboard?.instantiateViewController(withIdentifier: "InventoryTableView") as! InventoryTableViewController
-                                let appDelegate = UIApplication.shared.delegate
-                                appDelegate?.window??.rootViewController = homePage
-                        }
-                        
-                       // self.performSegue(withIdentifier: "LoginHome", sender: self)
-                        
+                        self.displayMessage(userMessage: "Successfully Registered a New Account. Please proceed to Sign in")
                     }
                     
                 } else {

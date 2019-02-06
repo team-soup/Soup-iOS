@@ -20,36 +20,74 @@ class ItemController {
     static var baseURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")!
     
     func put(withItem item: Item, completion: @escaping (Error?) -> Void) {
-        let url = ItemController.baseURL.appendingPathComponent(String(item.id))
-        let urlJSON = url.appendingPathExtension("json")
-        
-        var urlRequest = URLRequest(url: urlJSON)
-        urlRequest.addValue(KeychainWrapper.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
-        urlRequest.httpMethod = "PUT"
+        let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
+        print(accessToken)
+        let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
+        var request = URLRequest(url: myUrl!)
+        request.httpMethod = "PUT"
+        request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
         
         do {
             let encoder = JSONEncoder()
-            urlRequest.httpBody = try encoder.encode(item)
+            request.httpBody = try encoder.encode(item)
         } catch {
             print(error)
             completion(error)
             return
         }
         
-        URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+
+        URLSession.shared.dataTask(with: request) { (_, _, error) in
             if let error = error {
                 print(error)
                 completion(error)
                 return
             }
+            
             self.items.append(item)
             completion(nil)
             }.resume()
         
     }
     
-    func createItem(withName name: String, andAmount amount: Int, andCategory categoryId: Int, andId id: Int, completion: @escaping (Error?) -> Void) {
-        let item = Item(categoryID: categoryId, id: id, name: name, amount: amount)
+    func post(withItem item: Item, completion: @escaping (Error?) -> Void) {
+        let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
+        print(accessToken)
+        let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
+        var request = URLRequest(url: myUrl!)
+        request.httpMethod = "POST"
+        request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
+        
+        
+        do {
+            let encoder = JSONEncoder()
+            request.httpBody = try encoder.encode(item)
+        } catch {
+            print(error)
+            completion(error)
+            return
+        }
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { (_, _, error: Error?) in
+            
+            if error != nil {
+                print( "Could not successfully perform this request. Please try again later")
+                print("error=\(String(describing: error))")
+                return
+            }
+            self.items.append(item)
+            completion(nil)
+            
+            
+        }
+        task.resume()
+        
+        
+    }
+    
+    func createItem(withName name: String, andAmount amount: Int, andCategory categoryId: Int, completion: @escaping (Error?) -> Void) {
+        let item = Item(categoryID: categoryId, name: name, amount: amount)
         put(withItem: item, completion: completion)
         
     }
@@ -103,40 +141,5 @@ class ItemController {
         put(withItem: updatedItem, completion: completion)
     }
     
-    func fetchItems(completion: @escaping (Error?) -> Void) {
-       /* let url = ItemController.baseURL.appendingPathExtension("json")
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.addValue(userController.finalToken, forHTTPHeaderField: "Authorization")
-        
-        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
-            if let error = error {
-                completion(error)
-                return
-            }
-            
-            guard let data = data else {
-                completion(NSError())
-                return
-            }
-            
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                let decodedDict = try jsonDecoder.decode([String: Item].self, from: data)
-                let items = Array(decodedDict.values)
-                self.items = items
-                completion(nil)
-            } catch {
-                print("Error decoding received data: \(error)")
-                completion(error)
-                return
-            }
-            
-            }.resume()*/
-        
-    }
-    
-   
     
 }

@@ -109,41 +109,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rjs-fq-vsT">
-                                <rect key="frame" x="8" y="104" width="359" height="280"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Lcf-cx-DRE">
+                                <rect key="frame" x="8" y="107" width="359" height="324"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AOu-C3-N6V">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5U-TP-ZtJ">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AOu-C3-N6V">
+                                        <rect key="frame" x="0.0" y="49" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GXi-5U-Awv">
-                                        <rect key="frame" x="0.0" y="50" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="98" width="359" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Company Role" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubl-Ya-mNy">
-                                        <rect key="frame" x="0.0" y="100" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="147" width="359" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5aT-LJ-hbj">
-                                        <rect key="frame" x="0.0" y="150" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="196" width="359" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thX-tR-4sH">
-                                        <rect key="frame" x="0.0" y="200" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="245" width="359" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdW-9O-T19">
-                                        <rect key="frame" x="0.0" y="250" width="359" height="30"/>
+                                        <rect key="frame" x="0.0" y="294" width="359" height="30"/>
                                         <state key="normal" title="Create Account"/>
                                         <connections>
                                             <action selector="createAccountTapped:" destination="ykb-Ta-mRB" eventType="touchUpInside" id="JY9-dz-kke"/>
@@ -154,9 +160,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rjs-fq-vsT" firstAttribute="top" secondItem="yh9-SG-4ag" secondAttribute="top" constant="40" id="JIw-AQ-FhD"/>
-                            <constraint firstItem="yh9-SG-4ag" firstAttribute="trailing" secondItem="rjs-fq-vsT" secondAttribute="trailing" constant="8" id="ZYV-O2-lpM"/>
-                            <constraint firstItem="rjs-fq-vsT" firstAttribute="leading" secondItem="yh9-SG-4ag" secondAttribute="leading" constant="8" id="bYo-Bq-bNA"/>
+                            <constraint firstItem="Lcf-cx-DRE" firstAttribute="leading" secondItem="yh9-SG-4ag" secondAttribute="leading" constant="8" id="J5l-GD-xR5"/>
+                            <constraint firstItem="Lcf-cx-DRE" firstAttribute="top" secondItem="yh9-SG-4ag" secondAttribute="top" constant="43" id="jJV-Fc-mzX"/>
+                            <constraint firstItem="yh9-SG-4ag" firstAttribute="bottom" secondItem="Lcf-cx-DRE" secondAttribute="bottom" constant="236" id="jud-II-gFh"/>
+                            <constraint firstItem="yh9-SG-4ag" firstAttribute="trailing" secondItem="Lcf-cx-DRE" secondAttribute="trailing" constant="8" id="uzq-0A-aEz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yh9-SG-4ag"/>
                     </view>
@@ -164,6 +171,7 @@
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="thX-tR-4sH" id="I6n-s5-Ut1"/>
                         <outlet property="emailTextField" destination="GXi-5U-Awv" id="bA0-Rw-oMX"/>
+                        <outlet property="firstNameTextField" destination="e5U-TP-ZtJ" id="TKw-J0-dWj"/>
                         <outlet property="nameTextField" destination="AOu-C3-N6V" id="2wo-jr-NeH"/>
                         <outlet property="passwordTextField" destination="5aT-LJ-hbj" id="7Hs-1a-g6R"/>
                         <outlet property="roleTextField" destination="ubl-Ya-mNy" id="LDR-NG-3wz"/>

@@ -17,7 +17,7 @@ struct Item: Equatable, Codable {
     var imageURL: URL?
     
     
-    init(categoryID: Int, id: Int, name: String, amount: Int, unit: String = "") {
+    init(categoryID: Int, id: Int = 1, name: String, amount: Int, unit: String = "") {
         self.name = name
         self.amount = amount
         self.unit = unit
