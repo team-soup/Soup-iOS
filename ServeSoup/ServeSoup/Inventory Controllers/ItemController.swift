@@ -29,7 +29,7 @@ class ItemController {
         
         do {
             let encoder = JSONEncoder()
-            request.httpBody = try encoder.encode(item)
+            request.httpBody = try encoder.encode([item])
         } catch {
             print(error)
             completion(error)
@@ -61,7 +61,7 @@ class ItemController {
         
         do {
             let encoder = JSONEncoder()
-            request.httpBody = try encoder.encode(item)
+            request.httpBody = try encoder.encode([item])
         } catch {
             print(error)
             completion(error)

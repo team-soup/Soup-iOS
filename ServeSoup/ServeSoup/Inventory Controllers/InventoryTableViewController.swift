@@ -40,7 +40,7 @@ class InventoryTableViewController: UITableViewController {
         imageView.contentMode = .scaleAspectFit
         
         // 4
-        let image = UIImage(named: "fakeIcon")
+        let image = UIImage(named: "soupLogo")
         imageView.image = image
         
         // 5
