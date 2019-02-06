@@ -32,15 +32,32 @@ class InventoryCollectionViewController: UICollectionViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        
+        imageView.contentMode = .scaleAspectFit
+        
+        // 4
+        let image = UIImage(named: "soupLogo")
+        imageView.image = image
+        
+        
+        // 5
+        //navigationItem.titleView = imageView
+       // navigationItem.titleView?.addSubview(imageView)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ItemDetail" {
-            guard let cellDetailController = segue.destination as? ItemDetailViewController, let cell = sender as? ItemCollectionViewCell else { return }
+            guard let cellDetailController = segue.destination as? CollectionDetailViewController, let cell = sender as? ItemCollectionViewCell else { return }
             
             cellDetailController.itemController = itemController
             cellDetailController.item = cell.item
             
         } else if segue.identifier == "AddItem" {
-            guard let addItemController = segue.destination as? ItemDetailViewController else { return }
+            guard let addItemController = segue.destination as? CollectionDetailViewController else { return }
             
             addItemController.itemController = itemController
             
@@ -63,7 +80,7 @@ class InventoryCollectionViewController: UICollectionViewController {
 
    
 
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+   /* override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         
         let item = itemController.items[indexPath.row]
         itemController.delete(item: item) { (error) in
@@ -74,12 +91,9 @@ class InventoryCollectionViewController: UICollectionViewController {
                 collectionView.reloadData()
             }
         }
-    }
+    }*/
  
-   
-    
-    
-    
+  
     func loadMemberProfile() {
         let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
         //  let userId: String? = KeychainWrapper.standard.string(forKey: "userId")

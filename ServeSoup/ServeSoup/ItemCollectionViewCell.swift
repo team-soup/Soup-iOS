@@ -25,8 +25,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
         amountLabel.text = "Amount: \(item.amount)"
        // itemImageView.image  = item.imageURL
         
-        if amountLabel.text == "0" {
+        if amountLabel.text == "Amount: 0" {
             restockLabel.alpha = 1
+            restockLabel.textColor = .red
         } else {
             restockLabel.alpha = 0
         }

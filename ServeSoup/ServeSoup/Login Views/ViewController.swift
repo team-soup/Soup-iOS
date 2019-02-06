@@ -15,11 +15,23 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        view.backgroundColor = AppearanceHelper.honeydew
+        AppearanceHelper.style(button: loginButton)
+        AppearanceHelper.style(button: signUpButton)
+        
+        
+        
+    }
+    
     let userController = UserController()
 
-
-    @IBAction func signUpTapped(_ sender: UIButton) {
-        print(userController.users)
-    }
+    @IBOutlet weak var soupKitchenLabel: UILabel!
+    @IBOutlet weak var adminPanelLabel: UILabel!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
 }
 

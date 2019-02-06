@@ -88,7 +88,7 @@ class SignUpViewController: UIViewController {
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+       // request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let postString = ["firstname": firstNameTextField.text!,
                           "lastname": nameTextField.text!,

@@ -29,7 +29,7 @@ class ItemController {
         request.httpMethod = "PUT"
         
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+       // request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
         
         do {
@@ -53,40 +53,7 @@ class ItemController {
             completion(nil)
             }.resume()
         
-        
-        
-        
-    /*    func createPostsWith(postName: String, imageUrl: String?, description: String?, completion: @escaping(Error?) -> Void){
-            
-            let baseURL = URL(string: "https://backend-art.herokuapp.com/api/posts")!
-            
-            let params = ["postName" : postName, "imageUrl": imageUrl, "description" : description]
-            
-            guard let body = try? JSONEncoder().encode(params) else { return }
-            var request = URLRequest(url: baseURL)
-            
-            let userDefaults = UserDefaults.standard
-            
-            let authToken = userDefaults.value(forKeyPath: "token") as? String
-            
-            request.httpMethod = HTTPHelper.post.rawValue
-            request.httpBody = body
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            request.setValue(authToken, forHTTPHeaderField: "authorization")
-            
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    print("Error with the requst: \(error)")
-                    completion(error)
-                }
-                
-                if let response = response {
-                    print("Response from request: \(response)")
-                    completion(nil)
-                }
-                
-                }.resume()
-        }*/
+
         
         
     }
@@ -98,7 +65,7 @@ class ItemController {
         var request = URLRequest(url: myUrl!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+       // request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
         
         
@@ -162,7 +129,7 @@ class ItemController {
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+      //  request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(accessToken, forHTTPHeaderField: "Authorization")
         
         

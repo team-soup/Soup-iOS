@@ -17,8 +17,8 @@ enum AppearanceHelper {
     static var gunmetal = UIColor(red: 48/255, green: 50/255, blue: 61/255, alpha: 1.0)
     static var spanishGray = UIColor(red: 152/255, green: 151/255, blue: 136/255, alpha: 1.0)
     
-    static func ottoFont(with textStyle: UIFont.TextStyle, pointSize: CGFloat) -> UIFont {
-        let font = UIFont(name: "Otto", size: pointSize)!
+    static func sansFont(with textStyle: UIFont.TextStyle, pointSize: CGFloat) -> UIFont {
+        let font = UIFont(name: "PT Sans", size: pointSize)!
         
         return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: font)
         
@@ -26,7 +26,7 @@ enum AppearanceHelper {
     
     static func setAppearance() {
         
-        let textAttributes = [NSAttributedString.Key.font: ottoFont(with: .largeTitle, pointSize: 90), NSAttributedString.Key.foregroundColor: queenBlue]
+        let textAttributes = [NSAttributedString.Key.font: sansFont(with: .largeTitle, pointSize: 90), NSAttributedString.Key.foregroundColor: queenBlue]
         
         
         UINavigationBar.appearance().titleTextAttributes = textAttributes
@@ -38,6 +38,13 @@ enum AppearanceHelper {
         UITextField.appearance().tintColor = seaGreen
         
         
+    }
+    
+    static func style(button: UIButton) {
+       // button.titleLabel?.font = typerighterFont(with: .callout, pointSize: 30)
+        button.setTitleColor(honeydew, for: .normal)
+        button.backgroundColor = spanishGray
+        button.layer.cornerRadius = 3
     }
     
 }
