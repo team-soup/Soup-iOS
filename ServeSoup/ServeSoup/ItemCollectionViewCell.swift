@@ -21,11 +21,14 @@ class ItemCollectionViewCell: UICollectionViewCell {
         
        // let image = UIImage(
         
-        itemNameLabel.text = item.name
-        amountLabel.text = "Amount: \(item.amount)"
+        itemNameLabel.textColor = AppearanceHelper.queenBlue
+        amountLabel.textColor = AppearanceHelper.gunmetal
+    
+        itemNameLabel.text = item.name.uppercased()
+        amountLabel.text = "Quantity: \(item.amount)"
        // itemImageView.image  = item.imageURL
         
-        if amountLabel.text == "Amount: 0" {
+        if amountLabel.text == "Quantity: 0" {
             restockLabel.alpha = 1
             restockLabel.textColor = .red
         } else {

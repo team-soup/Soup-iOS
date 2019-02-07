@@ -26,18 +26,23 @@ enum AppearanceHelper {
     
     static func setAppearance() {
         
-        let textAttributes = [NSAttributedString.Key.font: sansFont(with: .largeTitle, pointSize: 90), NSAttributedString.Key.foregroundColor: queenBlue]
+        let textAttributes = [NSAttributedString.Key.font: sansFont(with: .largeTitle, pointSize: 30), NSAttributedString.Key.foregroundColor: honeydew]
         
         
         UINavigationBar.appearance().titleTextAttributes = textAttributes
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         
         UINavigationBar.appearance().barTintColor = spanishGray
-        UIBarButtonItem.appearance().tintColor = queenBlue
+        UIBarButtonItem.appearance().tintColor = honeydew
         
         UITextField.appearance().tintColor = seaGreen
         
         
+    }
+    
+    static func collectionAppearance() {
+        UINavigationBar.appearance().barTintColor = seaGreen
+        UIBarButtonItem.appearance().tintColor = honeydew
     }
     
     static func style(button: UIButton) {
@@ -46,5 +51,12 @@ enum AppearanceHelper {
         button.backgroundColor = spanishGray
         button.layer.cornerRadius = 3
     }
+    static func styleTwo(button: UIButton) {
+        // button.titleLabel?.font = typerighterFont(with: .callout, pointSize: 30)
+        button.setTitleColor(honeydew, for: .normal)
+        button.backgroundColor = queenBlue
+        button.layer.cornerRadius = 3
+    }
+    
     
 }

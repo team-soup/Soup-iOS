@@ -13,8 +13,25 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        AppearanceHelper.style(button: createButton)
+        view.backgroundColor = AppearanceHelper.honeydew
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        
+        imageView.contentMode = .scaleAspectFit
+        
+        // 4
+        let image = UIImage(named: "soupLogo")
+        imageView.image = image
+        
+        
+        // 5
+        navigationItem.titleView = imageView
     }
     
     var userController: UserController?
@@ -31,6 +48,7 @@ class SignUpViewController: UIViewController {
     
     var finalToken: String = ""
     
+    @IBOutlet weak var createButton: UIButton!
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -182,6 +200,10 @@ class SignUpViewController: UIViewController {
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true, completion:nil)
         }
+    }
+    
+    func setupAppearance() {
+        
     }
     
 }

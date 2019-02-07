@@ -17,7 +17,7 @@ class InventoryCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         
         // Register cell classes
       //  self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ItemCell")
@@ -26,6 +26,7 @@ class InventoryCollectionViewController: UICollectionViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AppearanceHelper.collectionAppearance()
         loadMemberProfile()
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -35,18 +36,7 @@ class InventoryCollectionViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated:true);
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         
-        imageView.contentMode = .scaleAspectFit
-        
-        // 4
-        let image = UIImage(named: "soupLogo")
-        imageView.image = image
-        
-        
-        // 5
-        //navigationItem.titleView = imageView
-       // navigationItem.titleView?.addSubview(imageView)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,25 +64,15 @@ class InventoryCollectionViewController: UICollectionViewController {
     
         let item = itemController.items[indexPath.row]
         cell.item = item
+        cell.backgroundColor = AppearanceHelper.honeydew
+        cell.layer.borderColor = AppearanceHelper.seaGreen.cgColor
+        cell.layer.borderWidth = 0.5
     
         return cell
     }
 
    
-
-   /* override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-        
-        let item = itemController.items[indexPath.row]
-        itemController.delete(item: item) { (error) in
-            if let error = error {
-                print(error)
-            }
-            DispatchQueue.main.async {
-                collectionView.reloadData()
-            }
-        }
-    }*/
- 
+    
   
     func loadMemberProfile() {
         let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!

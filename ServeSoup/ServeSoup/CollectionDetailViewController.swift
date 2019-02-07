@@ -13,6 +13,19 @@ class CollectionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        AppearanceHelper.collectionAppearance()
+        view.backgroundColor = AppearanceHelper.honeydew
+        AppearanceHelper.styleTwo(button: deleteButton)
+        
+        itemLabel.textColor = AppearanceHelper.queenBlue
+        quantityLabel.textColor = AppearanceHelper.queenBlue
+        unitLabel.textColor = AppearanceHelper.queenBlue
+        
+        if navigationItem.title == "Add a New Item" {
+            deleteButton.alpha = 0
+        } else {
+            deleteButton.alpha = 1
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -27,20 +40,32 @@ class CollectionDetailViewController: UIViewController {
     func updateViews() {
         
         if let item = item, isViewLoaded {
-            
-            itemNameTextField.text = item.name
+            deleteButton.alpha = 1
+            itemNameTextField.text = item.name.uppercased()
             amountTextField.text = String(item.amount)
             unitTextField.text = item.unit
             
             navigationItem.title = itemNameTextField.text
             
-            
+           
         } else {
             navigationItem.title = "Add a New Item"
+           
         }
         
     }
     
+    
+    @IBOutlet weak var itemLabel: UILabel!
+    
+    @IBOutlet weak var quantityLabel: UILabel!
+    
+    @IBOutlet weak var unitLabel: UILabel!
+    
+    
+    
+    
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var itemNameTextField: UITextField!
     
     @IBOutlet weak var amountTextField: UITextField!
@@ -79,6 +104,7 @@ class CollectionDetailViewController: UIViewController {
             
         } else {
             print(name, amount)
+            deleteButton.alpha = 1
             itemController?.createItem(withName: name, andAmount: Int(amount)!, andCategory: number, andUnit: unitTextField.text, completion: { (error) in
                 if let error = error {
                     print(error)

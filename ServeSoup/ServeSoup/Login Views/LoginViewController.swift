@@ -13,8 +13,26 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = AppearanceHelper.honeydew
+        AppearanceHelper.style(button: loginButton)
+        label.textColor = AppearanceHelper.queenBlue
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        
+        imageView.contentMode = .scaleAspectFit
+        
+        // 4
+        let image = UIImage(named: "soupLogo")
+        imageView.image = image
+        
+        
+        // 5
+        navigationItem.titleView = imageView
+        // navigationItem.titleView?.addSubview(imageView)
     }
     
     var userController: UserController?
@@ -29,7 +47,9 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBOutlet weak var label: UILabel!
     
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var emailTextField: UITextField!
     

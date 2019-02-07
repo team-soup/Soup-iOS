@@ -37,6 +37,7 @@
 		BB52436A220B08CA004189E2 /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		BB52436C220B7E59004189E2 /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		BB52436E220B8C69004189E2 /* PTS55F.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PTS55F.ttf; sourceTree = "<group>"; };
+		BB524370220BA66B004189E2 /* PTS75F.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PTS75F.ttf; sourceTree = "<group>"; };
 		BBB2F19D2208957B00C5EDC0 /* ServeSoup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServeSoup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB2F1A02208957B00C5EDC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBB2F1A22208957B00C5EDC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 				BB52436A220B08CA004189E2 /* AppearanceHelper.swift */,
 				BBB2F1A42208957B00C5EDC0 /* Main.storyboard */,
 				BB52436E220B8C69004189E2 /* PTS55F.ttf */,
+				BB524370220BA66B004189E2 /* PTS75F.ttf */,
 				BB52436C220B7E59004189E2 /* CollectionDetailViewController.swift */,
 				BBB2F1A72208957C00C5EDC0 /* Assets.xcassets */,
 				BBB2F1A92208957C00C5EDC0 /* LaunchScreen.storyboard */,
