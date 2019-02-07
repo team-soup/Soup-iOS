@@ -62,7 +62,7 @@ class CollectionDetailViewController: UIViewController {
     
     @IBOutlet weak var unitLabel: UILabel!
     
-    
+    let inventoryCollectionView = InventoryCollectionViewController()
     
     
     @IBOutlet weak var deleteButton: UIButton!
@@ -80,7 +80,8 @@ class CollectionDetailViewController: UIViewController {
                     print(error)
                 }
                 DispatchQueue.main.async {
-                   self.navigationController?.popViewController(animated: true)
+                   // self.inventoryCollectionView.collectionView.reloadData()
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         
@@ -105,14 +106,26 @@ class CollectionDetailViewController: UIViewController {
         } else {
             print(name, amount)
             deleteButton.alpha = 1
-            itemController?.createItem(withName: name, andAmount: Int(amount)!, andCategory: number, andUnit: unitTextField.text, completion: { (error) in
-                if let error = error {
-                    print(error)
-                }
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
-            })
+            if unitTextField.text == "" {
+                itemController?.createItem(withName: name, andAmount: Int(amount)!, andCategory: number, andUnit: nil, completion: { (error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                })
+            } else {
+                itemController?.createItem(withName: name, andAmount: Int(amount)!, andCategory: number, andUnit: unitTextField.text, completion: { (error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                })
+            }
+           
         }
     }
     

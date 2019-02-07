@@ -22,15 +22,14 @@ class ItemController {
     func put(withItem item: Item, completion: @escaping (Error?) -> Void) {
         let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
         print(accessToken)
-       // let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")!
         let newUrl = ItemController.baseURL.appendingPathComponent("\(String(describing: item.id))")
         
         var request = URLRequest(url: newUrl)
         request.httpMethod = "PUT"
         
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-       // request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(accessToken, forHTTPHeaderField: "Authorization")
         
         do {
             let encoder = JSONEncoder()
@@ -65,8 +64,9 @@ class ItemController {
         var request = URLRequest(url: myUrl!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-       // request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(accessToken, forHTTPHeaderField: "Authorization")
+        
         
         
         do {
@@ -129,7 +129,7 @@ class ItemController {
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-      //  request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(accessToken, forHTTPHeaderField: "Authorization")
         
         

@@ -26,11 +26,11 @@ enum AppearanceHelper {
     
     static func setAppearance() {
         
-        let textAttributes = [NSAttributedString.Key.font: sansFont(with: .largeTitle, pointSize: 30), NSAttributedString.Key.foregroundColor: honeydew]
+        let textAttributes = [NSAttributedString.Key.font: sansFont(with: .largeTitle, pointSize: 24), NSAttributedString.Key.foregroundColor: honeydew]
         
         
         UINavigationBar.appearance().titleTextAttributes = textAttributes
-        UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
+       // UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         
         UINavigationBar.appearance().barTintColor = spanishGray
         UIBarButtonItem.appearance().tintColor = honeydew

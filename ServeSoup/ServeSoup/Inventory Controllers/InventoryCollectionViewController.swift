@@ -17,28 +17,18 @@ class InventoryCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
-        // Register cell classes
-      //  self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ItemCell")
-
+        loadMemberProfile()
+     
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        AppearanceHelper.collectionAppearance()
-        loadMemberProfile()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        collectionView.reloadData()
         self.navigationItem.setHidesBackButton(true, animated:true);
-        
+     
     }
     
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ItemDetail" {
             guard let cellDetailController = segue.destination as? CollectionDetailViewController, let cell = sender as? ItemCollectionViewCell else { return }
@@ -61,8 +51,9 @@ class InventoryCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCollectionViewCell
-    
-        let item = itemController.items[indexPath.row]
+        
+        
+        let item = itemController.items[indexPath.item]
         cell.item = item
         cell.backgroundColor = AppearanceHelper.honeydew
         cell.layer.borderColor = AppearanceHelper.seaGreen.cgColor
@@ -81,7 +72,8 @@ class InventoryCollectionViewController: UICollectionViewController {
         let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
         var request = URLRequest(url: myUrl!)
         request.httpMethod = "GET"// Compose a query string
-        request.addValue("\(String(describing: accessToken))", forHTTPHeaderField: "Authorization")
+        request.addValue(accessToken, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
         // print(request) //Bearer
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -101,7 +93,9 @@ class InventoryCollectionViewController: UICollectionViewController {
                 let json = try JSONDecoder().decode(UpperLevel.self, from: data)
                 
                 self.itemController.items = json.items
-                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
                 
             } catch {
                 // Display an Alert dialog with a friendly error message

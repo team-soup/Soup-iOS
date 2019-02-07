@@ -20,9 +20,6 @@
 		BBB2F1AB2208957C00C5EDC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB2F1A92208957C00C5EDC0 /* LaunchScreen.storyboard */; };
 		BBB2F1B42208A88700C5EDC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1B32208A88700C5EDC0 /* LoginViewController.swift */; };
 		BBB2F1B62208A89600C5EDC0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1B52208A89600C5EDC0 /* SignUpViewController.swift */; };
-		BBB2F1B82208A8F300C5EDC0 /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1B72208A8F300C5EDC0 /* InventoryTableViewController.swift */; };
-		BBB2F1BA2208A91300C5EDC0 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1B92208A91300C5EDC0 /* ItemTableViewCell.swift */; };
-		BBB2F1BC2208AB6300C5EDC0 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1BB2208AB6300C5EDC0 /* ItemDetailViewController.swift */; };
 		BBB2F1BE2208AB9E00C5EDC0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1BD2208AB9E00C5EDC0 /* Item.swift */; };
 		BBB2F1C02208ABA900C5EDC0 /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1BF2208ABA900C5EDC0 /* ItemController.swift */; };
 		BBB2F1C32208CBDF00C5EDC0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB2F1C22208CBDF00C5EDC0 /* User.swift */; };
@@ -47,9 +44,6 @@
 		BBB2F1AC2208957C00C5EDC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBB2F1B32208A88700C5EDC0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BBB2F1B52208A89600C5EDC0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		BBB2F1B72208A8F300C5EDC0 /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
-		BBB2F1B92208A91300C5EDC0 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
-		BBB2F1BB2208AB6300C5EDC0 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		BBB2F1BD2208AB9E00C5EDC0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		BBB2F1BF2208ABA900C5EDC0 /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
 		BBB2F1C22208CBDF00C5EDC0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -86,6 +80,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BB524371220BAE46004189E2 /* User Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BBB2F1C42208D0B700C5EDC0 /* UserController.swift */,
+				BBB2F1C22208CBDF00C5EDC0 /* User.swift */,
+			);
+			path = "User Controllers";
+			sourceTree = "<group>";
+		};
 		BBB2F1942208957B00C5EDC0 = {
 			isa = PBXGroup;
 			children = (
@@ -107,18 +110,14 @@
 		BBB2F19F2208957B00C5EDC0 /* ServeSoup */ = {
 			isa = PBXGroup;
 			children = (
+				BB524371220BAE46004189E2 /* User Controllers */,
 				BBB2F1C12208CB7F00C5EDC0 /* Inventory Controllers */,
 				BBB2F1B22208A6AD00C5EDC0 /* Login Views */,
 				BBB2F1A02208957B00C5EDC0 /* AppDelegate.swift */,
-				BBB2F1C22208CBDF00C5EDC0 /* User.swift */,
-				BBB2F1C42208D0B700C5EDC0 /* UserController.swift */,
-				BB199489220A6EA20038BAD8 /* InventoryCollectionViewController.swift */,
-				BB199488220A6EA20038BAD8 /* ItemCollectionViewCell.swift */,
 				BB52436A220B08CA004189E2 /* AppearanceHelper.swift */,
 				BBB2F1A42208957B00C5EDC0 /* Main.storyboard */,
 				BB52436E220B8C69004189E2 /* PTS55F.ttf */,
 				BB524370220BA66B004189E2 /* PTS75F.ttf */,
-				BB52436C220B7E59004189E2 /* CollectionDetailViewController.swift */,
 				BBB2F1A72208957C00C5EDC0 /* Assets.xcassets */,
 				BBB2F1A92208957C00C5EDC0 /* LaunchScreen.storyboard */,
 				BBB2F1AC2208957C00C5EDC0 /* Info.plist */,
@@ -141,9 +140,9 @@
 			children = (
 				BBB2F1BD2208AB9E00C5EDC0 /* Item.swift */,
 				BBB2F1BF2208ABA900C5EDC0 /* ItemController.swift */,
-				BBB2F1BB2208AB6300C5EDC0 /* ItemDetailViewController.swift */,
-				BBB2F1B72208A8F300C5EDC0 /* InventoryTableViewController.swift */,
-				BBB2F1B92208A91300C5EDC0 /* ItemTableViewCell.swift */,
+				BB199489220A6EA20038BAD8 /* InventoryCollectionViewController.swift */,
+				BB199488220A6EA20038BAD8 /* ItemCollectionViewCell.swift */,
+				BB52436C220B7E59004189E2 /* CollectionDetailViewController.swift */,
 			);
 			path = "Inventory Controllers";
 			sourceTree = "<group>";
@@ -271,15 +270,12 @@
 			files = (
 				BBB2F1B42208A88700C5EDC0 /* LoginViewController.swift in Sources */,
 				BBB2F1C02208ABA900C5EDC0 /* ItemController.swift in Sources */,
-				BBB2F1BC2208AB6300C5EDC0 /* ItemDetailViewController.swift in Sources */,
 				BB52436B220B08CA004189E2 /* AppearanceHelper.swift in Sources */,
 				BBB2F1C52208D0B700C5EDC0 /* UserController.swift in Sources */,
-				BBB2F1B82208A8F300C5EDC0 /* InventoryTableViewController.swift in Sources */,
 				BBB2F1A32208957B00C5EDC0 /* ViewController.swift in Sources */,
 				BBB2F1BE2208AB9E00C5EDC0 /* Item.swift in Sources */,
 				BB19948B220A6EA20038BAD8 /* InventoryCollectionViewController.swift in Sources */,
 				BBB2F1B62208A89600C5EDC0 /* SignUpViewController.swift in Sources */,
-				BBB2F1BA2208A91300C5EDC0 /* ItemTableViewCell.swift in Sources */,
 				BB52436D220B7E59004189E2 /* CollectionDetailViewController.swift in Sources */,
 				BB19948A220A6EA20038BAD8 /* ItemCollectionViewCell.swift in Sources */,
 				BBB2F1C32208CBDF00C5EDC0 /* User.swift in Sources */,

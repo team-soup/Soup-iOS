@@ -106,7 +106,7 @@ class SignUpViewController: UIViewController {
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-       // request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let postString = ["firstname": firstNameTextField.text!,
                           "lastname": nameTextField.text!,
@@ -151,7 +151,7 @@ class SignUpViewController: UIViewController {
                         self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
                         return
                     } else {
-                        self.displayMessage(userMessage: "Successfully Registered a New Account. Please proceed to Sign in")
+                        self.displayMessage(userMessage: "Successfully Registered a New Account. Please proceed to login page")
                     }
                     
                 } else {

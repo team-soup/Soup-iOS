@@ -94,7 +94,7 @@ class LoginViewController: UIViewController {
         
         request.httpMethod = "POST"// Compose a query string
         request.addValue("application/json", forHTTPHeaderField: "content-type")
-        //request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let postString = ["email": email!, "password": password!] as [String: String]
         
@@ -149,9 +149,7 @@ class LoginViewController: UIViewController {
                     
                     DispatchQueue.main.async
                         {
-                          /*  let homePage = self.storyboard?.instantiateViewController(withIdentifier: "InventoryTableView") as! InventoryTableViewController
-                            let appDelegate = UIApplication.shared.delegate
-                            appDelegate?.window??.rootViewController = homePage */
+                          
                             self.performSegue(withIdentifier: "LogintoCollection", sender: self)
                     }
                     
