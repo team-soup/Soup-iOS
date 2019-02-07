@@ -23,7 +23,7 @@ struct Item: Equatable, Codable {
         self.unit = unit
         self.categoryID = categoryID
         self.id = 0
-       // self.imageURL = URL(string: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiA9PSk1qXgAhUT2VQKHcExDbAQjRx6BAgBEAU&url=https%3A%2F%2Ficons8.com%2F&psig=AOvVaw16fTVvDjRmJxkJIR7H9CKJ&ust=1549493242246052")
+        self.imageURL = URL(string: "https://ibb.co/z5MGfc6")
     }
     
 }

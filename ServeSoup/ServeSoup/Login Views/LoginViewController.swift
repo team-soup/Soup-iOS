@@ -143,7 +143,7 @@ class LoginViewController: UIViewController {
                     if (accessToken?.isEmpty)!
                     {
                         // Display an Alert dialog with a friendly error message
-                        self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
+                        self.displayMessage(userMessage: "Account no longer exists. Could not successfully perform this request. Please try again later")
                         return
                     }
                     

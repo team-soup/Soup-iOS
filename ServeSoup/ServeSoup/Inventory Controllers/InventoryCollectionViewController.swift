@@ -67,7 +67,7 @@ class InventoryCollectionViewController: UICollectionViewController {
   
     func loadMemberProfile() {
         let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
-        //  let userId: String? = KeychainWrapper.standard.string(forKey: "userId")
+        
         print(accessToken)
         let myUrl = URL(string: "https://soup-kitchen-backend.herokuapp.com/api/items")
         var request = URLRequest(url: myUrl!)
@@ -123,6 +123,14 @@ class InventoryCollectionViewController: UICollectionViewController {
         }
     }
     
+    var signedOut: Bool = false
+    
+    @IBAction func signoutTapped(_ sender: UIBarButtonItem) {
+        KeychainWrapper.standard.removeObject(forKey: "accessToken")
+        self.performSegue(withIdentifier: "SignOut", sender: self)
+        
+        
+    }
     
     
     

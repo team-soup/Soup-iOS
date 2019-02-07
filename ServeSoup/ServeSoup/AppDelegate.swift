@@ -15,20 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let itemController = ItemController()
+    let viewController = ViewController()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         AppearanceHelper.setAppearance()
-        print(itemController.items.count)
-       // let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
-        /*if accessToken != nil {
+        
+        let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+        
+        if (accessToken != nil) {
             // Take user to a home page
-            let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let homePage = mainStoryboard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
-            self.window?.rootViewController = homePage
-            homePage.navigationController?.popViewController(animated: true)
+            print(accessToken!)
             
-       
-        }*/
+          // viewController.saveData()
+           
+        }
         return true
     }
 

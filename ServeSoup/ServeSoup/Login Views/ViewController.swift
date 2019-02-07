@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -22,8 +23,12 @@ class ViewController: UIViewController {
         AppearanceHelper.style(button: loginButton)
         AppearanceHelper.style(button: signUpButton)
         
+        self.navigationItem.setHidesBackButton(true, animated:true);
         
-        
+    }
+    
+    func saveData () {
+        self.performSegue(withIdentifier: "loggedin", sender: self)
     }
     
     let userController = UserController()
