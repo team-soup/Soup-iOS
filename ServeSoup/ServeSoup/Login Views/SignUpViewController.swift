@@ -32,11 +32,18 @@ class SignUpViewController: UIViewController {
         
         // 5
         navigationItem.titleView = imageView
+        
+        imageView.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
+            imageView.transform = .identity
+        }, completion: nil)
     }
     
     var userController: UserController?
 
-  
+    func move () {
+        
+    }
     
     var finalToken: String = ""
     

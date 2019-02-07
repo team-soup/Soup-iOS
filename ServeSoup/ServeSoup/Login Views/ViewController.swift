@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         AppearanceHelper.style(button: signUpButton)
         
         self.navigationItem.setHidesBackButton(true, animated:true);
+        wiggle()
         
     }
     
@@ -31,6 +32,16 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "loggedin", sender: self)
     }
     
+    func wiggle() {
+        UIView.animate(withDuration: 2.0, animations: {
+            self.logoImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4) //in radians
+        }) { (_) in
+            UIView.animate(withDuration: 2.0
+                , animations: {
+                    self.logoImageView.transform = .identity
+            })
+        }
+    }
     let userController = UserController()
 
     @IBOutlet weak var soupKitchenLabel: UILabel!
@@ -38,5 +49,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    
+    
+    
 }
 
