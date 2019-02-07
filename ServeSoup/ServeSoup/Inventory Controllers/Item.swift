@@ -14,7 +14,7 @@ struct Item: Equatable, Codable {
     var name: String
     var amount: Int
     var unit: String
-    var imageURL: URL?
+    //var imageURL: URL
     
     
     init(categoryID: Int, name: String, amount: Int, unit: String = "undefined") {
@@ -23,7 +23,7 @@ struct Item: Equatable, Codable {
         self.unit = unit
         self.categoryID = categoryID
         self.id = 0
-        self.imageURL = URL(string: "https://ibb.co/z5MGfc6")
+        //self.imageURL = URL(string: "https://ibb.co/z5MGfc6")
     }
     
 }
