@@ -15,8 +15,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = AppearanceHelper.honeydew
         AppearanceHelper.style(button: loginButton)
-        //label.textColor = AppearanceHelper.queenBlue
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +31,7 @@ class LoginViewController: UIViewController {
         
         // 5
         navigationItem.titleView = imageView
-        // navigationItem.titleView?.addSubview(imageView)
+       
     }
     
     var userController: UserController?
@@ -130,12 +129,11 @@ class LoginViewController: UIViewController {
                     }
                     // Now we can access value of First Name by its key
                     let accessToken = parseJSON["token"] as? String
-                    // let userId = parseJSON["id"] as? String
-                    print("Access token: \(String(describing: accessToken!))")
+                    
+                   // print("Access token: \(String(describing: accessToken!))")
                     
                     let saveAccesssToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
-                   // self.userController?.finalToken = accessToken!
-                    // let saveUserId: Bool = KeychainWrapper.standard.set(userId!, forKey: "userId")
+                   
                     
                     print("The access token save result: \(saveAccesssToken)")
                     //  print("The userId save result \(saveUserId)")

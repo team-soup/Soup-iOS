@@ -46,13 +46,13 @@ enum AppearanceHelper {
     }
     
     static func style(button: UIButton) {
-       // button.titleLabel?.font = typerighterFont(with: .callout, pointSize: 30)
+       
         button.setTitleColor(honeydew, for: .normal)
         button.backgroundColor = spanishGray
         button.layer.cornerRadius = 3
     }
     static func styleTwo(button: UIButton) {
-        // button.titleLabel?.font = typerighterFont(with: .callout, pointSize: 30)
+        
         button.setTitleColor(honeydew, for: .normal)
         button.backgroundColor = queenBlue
         button.layer.cornerRadius = 3

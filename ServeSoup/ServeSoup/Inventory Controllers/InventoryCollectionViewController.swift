@@ -89,7 +89,7 @@ class InventoryCollectionViewController: UICollectionViewController {
                 return
             }
             do {
-                // let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+               
                 let json = try JSONDecoder().decode(UpperLevel.self, from: data)
                 
                 self.itemController.items = json.items

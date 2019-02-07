@@ -116,13 +116,7 @@ class ItemController {
     }
     
     func deleteFromServer(item: Item, completion: @escaping (Error?) -> Void) {
-       /* let url = ItemController.baseURL.appendingPathComponent(String(item.id))
-        let urlJSON = url.appendingPathExtension("json")
-        
-        var urlRequest = URLRequest(url: urlJSON)
-        urlRequest.addValue(KeychainWrapper.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
-        urlRequest.httpMethod = "DELETE"*/
-        //  guard let itemId = item.id else { return }
+       
         let accessToken: String = KeychainWrapper.standard.string(forKey: "accessToken")!
         print(accessToken)
         let url = ItemController.baseURL.appendingPathComponent(String(item.id))
