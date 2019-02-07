@@ -62,6 +62,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     
     
+    var success: Bool = false
     
     @IBAction func createAccountTapped(_ sender: UIButton) {
         print("Sign up button tapped")
@@ -151,7 +152,9 @@ class SignUpViewController: UIViewController {
                         self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
                         return
                     } else {
+                        self.success = true
                         self.displayMessage(userMessage: "Successfully Registered a New Account. Please proceed to login page")
+                        
                     }
                     
                 } else {
@@ -195,6 +198,9 @@ class SignUpViewController: UIViewController {
                     DispatchQueue.main.async
                         {
                             self.dismiss(animated: true, completion: nil)
+                            if self.success == true {
+                                self.performSegue(withIdentifier: "SigntoLogin", sender: self)
+                            }
                     }
                 }
                 alertController.addAction(OKAction)

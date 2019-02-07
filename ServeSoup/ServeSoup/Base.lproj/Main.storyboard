@@ -112,7 +112,7 @@
                                     <constraint firstAttribute="height" constant="29" id="dR6-sW-Y8I"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="22"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.54117647058823526" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gO7-Pk-lhO">
@@ -265,6 +265,7 @@
                         <outlet property="nameTextField" destination="AOu-C3-N6V" id="2wo-jr-NeH"/>
                         <outlet property="passwordTextField" destination="5aT-LJ-hbj" id="7Hs-1a-g6R"/>
                         <outlet property="roleTextField" destination="ubl-Ya-mNy" id="LDR-NG-3wz"/>
+                        <segue destination="3PY-QC-peL" kind="show" identifier="SigntoLogin" id="ltz-DK-Npo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esK-c3-BPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,15 +280,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pzx-Pe-4bO">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="2" id="Pzx-Pe-4bO">
                             <size key="itemSize" width="160" height="160"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="ItemCell" id="8DO-B2-oHO" customClass="ItemCollectionViewCell" customModule="ServeSoup" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                <rect key="frame" x="20" y="0.0" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
@@ -299,7 +300,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="247" horizontalCompressionResistancePriority="753" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzy-on-edJ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="247" horizontalCompressionResistancePriority="753" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzy-on-edJ">
                                             <rect key="frame" x="0.0" y="69" width="160" height="25"/>
                                             <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="19"/>
                                             <nil key="textColor"/>
@@ -340,6 +341,7 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Kitchen Inventory" id="3Ft-xz-M0z">
+                        <barButtonItem key="leftBarButtonItem" id="Agu-1x-A7e"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f6C-q2-yt8">
                             <connections>
                                 <segue destination="Xe2-Eh-9Hk" kind="show" identifier="AddItem" id="cjE-F0-KyL"/>
@@ -497,5 +499,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cjE-F0-KyL"/>
+        <segue reference="ltz-DK-Npo"/>
     </inferredMetricsTieBreakers>
 </document>

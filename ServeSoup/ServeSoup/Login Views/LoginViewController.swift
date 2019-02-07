@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = AppearanceHelper.honeydew
         AppearanceHelper.style(button: loginButton)
-        label.textColor = AppearanceHelper.queenBlue
+        //label.textColor = AppearanceHelper.queenBlue
         // Do any additional setup after loading the view.
     }
     
