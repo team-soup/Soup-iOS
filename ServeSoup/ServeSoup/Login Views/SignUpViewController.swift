@@ -9,13 +9,19 @@
 import UIKit
 import SwiftKeychainWrapper
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         AppearanceHelper.style(button: createButton)
         view.backgroundColor = AppearanceHelper.honeydew
-        // Do any additional setup after loading the view.
+        
+        self.nameTextField.delegate = self
+        self.firstNameTextField.delegate = self
+        self.roleTextField.delegate = self
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.confirmPasswordTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,9 +47,11 @@ class SignUpViewController: UIViewController {
     
     var userController: UserController?
 
-    func move () {
-        
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
+    
     
     var finalToken: String = ""
     
