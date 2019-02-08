@@ -9,13 +9,16 @@
 import UIKit
 import SwiftKeychainWrapper
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppearanceHelper.honeydew
         AppearanceHelper.style(button: loginButton)
         
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +40,10 @@ class LoginViewController: UIViewController {
     var userController: UserController?
     var user: User?
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     /*
     // MARK: - Navigation
 
